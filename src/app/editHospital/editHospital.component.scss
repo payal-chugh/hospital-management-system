@@ -1,0 +1,40 @@
+select,
+input[type="text"],
+input[type="number"] {
+    height: 36px !important;
+    margin-bottom: 0px !important;
+    width: 100% !important;
+}
+
+label {
+    font-weight: 600;
+    line-height: 2 !important;
+    margin-top: 10px !important;
+}
+
+.required-asterisk {
+    color: red;
+}
+
+.alert {
+    margin: 9px !important;
+    height: 27px !important;
+    line-height: 27px !important;
+    padding: 0px 15px !important;
+}
+
+.col-6 {
+    line-height: 3 !important;
+}
+
+.rightmargin{
+    margin-right: 2%;
+}
+
+.submitDiv{
+    text-align: center; 
+    margin-top:5%
+}
+.centerAlign{
+    text-align: center; 
+}

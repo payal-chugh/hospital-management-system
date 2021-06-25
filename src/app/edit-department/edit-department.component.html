@@ -1,0 +1,43 @@
+
+<div class="container-fluid">
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">{{ title }}</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body" style="height: 100%;">
+        <form [formGroup]='editDepartment' (ngSubmit)="saveDepartment()" *ngIf="operation == 'Edit' || operation == 'Add'">
+            <div class="col-12">
+              <div class="row">
+                <div class="col-6">
+                  <label class="form-label">Department Name:<span class="required-asterisk">*</span> </label><br>
+                  <label class="form-label">Head:<span class="required-asterisk">*</span> </label><br>
+                  <label class="form-label">Contact Number:<span class="required-asterisk">*</span> </label><br>
+                  <label class="form-label">Hospital Name:<span class="required-asterisk">*</span> </label><br>
+                </div>
+                <div class="col-6">
+                  <input type='text' class="form-control" formControlName="departmentname" required /><br>
+                  <input type='text' class="form-control" formControlName="head" required /><br>
+                  <input type='number' class="form-control" formControlName="contactnumber" required /><br>
+                  <select formControlName="hospitalname" class="form-select">
+                    <option *ngFor="let hospital of hospitals" [ngValue]="hospital.hospitalname">{{hospital.hospitalname}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="submitDiv">
+                <button [disabled]="!editDepartment.valid" class="btn btn-primary rightmargin" type="submit">Save</button>
+                <button class="btn btn-danger rightmargin" type="button" (click)="modalRef.hide()" >Cancel</button>
+              </div>
+            </div>
+          </form>
+          <div class="col-12 centerAlign" *ngIf="operation == 'Delete'">
+            <p>Are you sure you want to Delete?</p>
+            <button type="button" class="btn btn-danger rightmargin" (click)="deleteDepartment()" >Yes</button>
+            <button type="button" class="btn btn-primary rightmargin" (click)="modalRef.hide()" >No</button>
+          </div>
+    </div>
+    <div class="modal-footer">
+      Note: Save button will activate only when all input fields are valid.
+    </div>
+</div>

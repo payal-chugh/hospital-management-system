@@ -1,0 +1,27 @@
+<div class="datatableDiv" *ngIf="isLoaded">
+  <button class="btn zoom formbtn backbtn" type="button" (click)="goToHospitals()"><i class="icon-circle-arrow-left icons"></i> Hospitals</button><br>
+  <div class="header"><span class="tableHead">Department List</span>
+    <button class="btn zoom formbtn float-right" type="button" (click)="edit('Add','')">Add Department <i class="icon-plus-sign icons"></i></button><br>
+  </div>  
+    <table datatable [dtOptions]="dtOptions" class="table table-bordered centeralign">
+    <thead class="tableheader">
+      <tr>
+        <th>Department Name</th>
+        <th>Head</th>
+        <th>Contact Number</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let department of departments">
+        <td>{{ department.departmentname }}</td>
+        <td>{{ department.head }}</td>
+        <td>{{ department.contactnumber }}</td>
+        <td>
+            <button type="button" class="btn tablebtn rightmargin" (click)="edit('Edit', department.departmentname)">Edit <i class="icon-edit" style="margin-right: 0px; font-size: 18px;"></i></button>
+            <button type="button" class="btn tablebtn rightmargin" (click)="edit('Delete',department.departmentname)">Delete <i class="icon-remove-sign" style="margin-right: 0px; font-size: 18px;"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
